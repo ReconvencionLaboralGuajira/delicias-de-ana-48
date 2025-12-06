@@ -29,6 +29,9 @@ body {
 
 body.nav-open {
     overflow: hidden;
+    position: fixed;
+    inset: 0;
+    width: 100%;
 }
 
 section {
@@ -735,10 +738,10 @@ img {
         height: 100vh;
         flex-direction: column;
         gap: 1.25rem;
-        background: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(14px) saturate(140%);
+        background: #ffffff;
+        backdrop-filter: none;
         padding: 4.5rem 1.25rem 2.75rem;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+        box-shadow: none;
         transform: translateX(100%);
         transition: transform 0.3s ease;
         z-index: 999;
