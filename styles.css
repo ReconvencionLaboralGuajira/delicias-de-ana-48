@@ -732,11 +732,12 @@ img {
 
     .nav-wrapper {
         position: fixed;
-        inset: 0;
+        top: 0;
         left: 0;
         right: 0;
-        width: 100vw;
-        max-width: 100vw;
+        bottom: 0;
+        width: 100vw !important;
+        max-width: 100vw !important;
         height: 100vh;
         flex-direction: column;
         gap: 1.25rem;
