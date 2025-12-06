@@ -123,6 +123,13 @@ img {
     gap: 2.5rem;
 }
 
+.nav-close {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
 .nav-links {
     display: flex;
     align-items: center;
@@ -732,6 +739,31 @@ img {
         transition: transform 0.3s ease;
         z-index: 999;
         overflow-y: auto;
+        position: fixed;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .nav-close {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        background: rgba(0, 0, 0, 0.04);
+        color: #0f172a;
+        font-size: 1.25rem;
+        cursor: pointer;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .nav-wrapper.is-open .nav-close {
+        display: inline-flex;
     }
 
     .nav-wrapper.is-open {
