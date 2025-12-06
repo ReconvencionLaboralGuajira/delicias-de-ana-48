@@ -662,19 +662,36 @@ img {
 
 /* WhatsApp Floating */
 .whatsapp-float {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
+    --wa-offset: 24px;
+    position: fixed !important;
+    bottom: var(--wa-offset) !important;
+    right: var(--wa-offset) !important;
     width: 60px;
     height: 60px;
     border-radius: 50%;
     background: #25d366;
-    display: grid;
-    place-items: center;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
     box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
     border: 2px solid #ffffff;
-    z-index: 1300;
+    z-index: 9999 !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+@supports (bottom: calc(1px + env(safe-area-inset-bottom))) {
+    .whatsapp-float {
+        bottom: calc(var(--wa-offset) + env(safe-area-inset-bottom));
+        right: calc(var(--wa-offset) + env(safe-area-inset-right));
+    }
+}
+
+.whatsapp-float svg {
+    display: block;
+    flex-shrink: 0;
 }
 
 .whatsapp-float:hover {
@@ -685,8 +702,9 @@ img {
 /* Responsive */
 @media (max-width: 1200px) {
     .whatsapp-float {
-        bottom: 18px;
-        right: 18px;
+        --wa-offset: 20px;
+        bottom: var(--wa-offset) !important;
+        right: var(--wa-offset) !important;
         width: 56px;
         height: 56px;
     }
@@ -760,6 +778,16 @@ img {
     }
 }
 
+@media (max-width: 768px) {
+    .whatsapp-float {
+        --wa-offset: 18px;
+        bottom: var(--wa-offset) !important;
+        right: var(--wa-offset) !important;
+        width: 54px;
+        height: 54px;
+    }
+}
+
 @media (max-width: 600px) {
     .menu-meta {
         flex-direction: column;
@@ -772,10 +800,11 @@ img {
     }
 
     .whatsapp-float {
-        bottom: 16px;
-        right: 16px;
-        width: 52px;
-        height: 52px;
+        --wa-offset: 16px;
+        bottom: var(--wa-offset) !important;
+        right: var(--wa-offset) !important;
+        width: 50px;
+        height: 50px;
     }
 
     .hero-grid {
@@ -789,5 +818,20 @@ img {
 
     .hero-stats {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 400px) {
+    .whatsapp-float {
+        --wa-offset: 14px;
+        bottom: var(--wa-offset) !important;
+        right: var(--wa-offset) !important;
+        width: 48px;
+        height: 48px;
+    }
+    
+    .whatsapp-float svg {
+        width: 28px;
+        height: 28px;
     }
 }
